@@ -33,10 +33,10 @@
 #else:
 #    print("a i b sa rowne")
 
-lista = [4,6,7,8,9,8]
+#lista = [4,6,7,8,9,8]
 
-n = int(input("podaj liczbe: "))
-licznik = 0
+#n = int(input("podaj liczbe: "))
+#licznik = 0
 
 #while licznik < len(lista):
 #    if int(n) - lista[licznik] == 0:
@@ -49,12 +49,49 @@ licznik = 0
 
 
 
-try:
-    a = 23
-    b = 0
-    wynik = a / b
-    print(wynik)
-except ZeroDivisionError:
-    print("pamiętaj cholero")
-    print("nie można dzielić przez zero")
+#try:
+#    a = 23
+#    b = 0
+#    wynik = a / b
+#    print(wynik)
+#except ZeroDivisionError:
+#    print("pamiętaj cholero")
+#    print("nie można dzielić przez zero")
 
+
+#lista.extend(range(3, 43))
+
+#słownik = {0:'a'}
+
+#for x in lista:
+    #print(x)
+
+
+#lista2 = [x**2 for x in range(0,500) if x % 2 == 0]
+
+#lista3 = [x for x in lista2 if x >= 16]
+
+#for x in lista2:
+#    print(x)
+
+lista4 = [(a,b) for a in range(0,10) for b in range(0,20)]
+
+print(lista4)
+
+
+def row_kwadratowe(a,b,c):
+    delta = b**2 - 4*a*c
+    if delta < 0:
+        print("brak rozwiazan")
+        return -1
+    elif delta == 0:
+        return -b/(2*a)
+    else:
+        return ((-b + (delta**(1/2))) / 2*a, (-b - (delta**(1/2))) / 2*a)
+
+def parzysta(a):
+    return a % 2 == 0
+
+print(row_kwadratowe(1,4,1))
+
+print(parzysta(4))
