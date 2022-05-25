@@ -38,15 +38,39 @@ import numpy as np
 # plt.show()
 
 
-sns.set()
-data = {'a': np.arange(10),
-        'c': np.random.randint(0, 50, 10),
-        'd': np.random.randn(10)}
-data['b'] = data['a'] + 10 * np.random.randn(10)
-data['d'] = np.abs(data['d']) * 100
+# sns.set()
+# data = {'a': np.arange(10),
+#         'c': np.random.randint(0, 50, 10),
+#         'd': np.random.randn(10)}
+# data['b'] = data['a'] + 10 * np.random.randn(10)
+# data['d'] = np.abs(data['d']) * 100
 
-df = pd.DataFrame(data)
-plot = sns.relplot(data=df, x='a', y='b', hue='c', palette='bright', size='d', legend=True)
-plot.fig.set_size_inches(6,6)
-plot.set(xticks=data['a'])
+# df = pd.DataFrame(data)
+# plot = sns.relplot(data=df, x='a', y='b', hue='c', palette='bright', size='d', legend=True)
+# plot.fig.set_size_inches(6,6)
+# plot.set(xticks=data['a'])
+# plt.show()
+
+
+
+fig = plt.figure(figsize=plt.figaspect(0.5))
+
+np.random.seed(678678)
+
+def randrange(n, vmin, vmax):
+        return (vmax - vmin) * np.random.rand(n) + vmin
+
+
+n = 100
+ax = fig.add_subplot(1, 1, 1, projection='3d')
+
+for c, m, zlow, zhigh in [('r', 'o', -50, -25), ('b', '^', -30, -5)]:
+        xs = randrange(n, 23, 32)
+        ys = randrange(n, 0, 100)
+        zs = randrange(n, zlow, zhigh)
+        ax.scatter(xs, ys, zs, c=c, marker=m)
+
+ax = fig.add_subplot(1, 2, 2, projection='3d')
+X, Y, Z = get_test_data()
+ax.plot_wireframe(X, Y, Z, rstride=10, cstride=10)
 plt.show()
